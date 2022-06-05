@@ -1,8 +1,8 @@
 package fedorovsa.algorithms;
 
-public class MinValueArray {
+public class MinArrayValue {
 
-    public static int minValueArray(int[] source) {
+    public static int minArrayValue(int[] source) {
         int minValue = source[0];
         int minIndex = 0;
         for (int index = 1; index < source.length; index++) {
@@ -16,7 +16,7 @@ public class MinValueArray {
 
     public static void main(String[] args) {
         int[] array = new int[]{5, 3, 7, 2, 1, 4, 6, 9, 8};
-        int index = minValueArray(array);
+        int index = minArrayValue(array);
         System.out.println("MinValue: " + array[index]
                 + ", MinIndex: " + index);
     }
