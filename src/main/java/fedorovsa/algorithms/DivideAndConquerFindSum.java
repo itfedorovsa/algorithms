@@ -1,6 +1,6 @@
 package fedorovsa.algorithms;
 
-public class DivideAndConquerArraySum {
+public class DivideAndConquerFindSum {
 
     public static int findSum(int[] array, int n) {
         if (n <= 0) {
