@@ -1,14 +1,33 @@
 package fedorovsa.algorithms;
 
+import java.util.Stack;
+
 public class DepthFirstSearch {
 
-    public int sum(Tree tree) {
+    public int sumRec(Tree tree) {
         int result = tree.value;
         if (tree.left != null) {
-            result += sum(tree.left);
+            result += sumRec(tree.left);
         }
         if (tree.right != null) {
-            result += sum(tree.right);
+            result += sumRec(tree.right);
+        }
+        return result;
+    }
+
+    public int sumIter(Tree tree) {
+        Stack<Tree> stack = new Stack<>();
+        int result = 0;
+        stack.push(tree);
+        while (!stack.empty()) {
+            Tree node = stack.pop();
+            result += node.value;
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                stack.push(node.right);
+            }
         }
         return result;
     }
@@ -35,6 +54,7 @@ public class DepthFirstSearch {
                         new Tree(3, null, new Tree(9))),
                 new Tree(6, null, new Tree(8)));
         DepthFirstSearch dfs = new DepthFirstSearch();
-        System.out.println(dfs.sum(tree));
+        System.out.println(dfs.sumRec(tree));
+        System.out.println(dfs.sumIter(tree));
     }
 }
